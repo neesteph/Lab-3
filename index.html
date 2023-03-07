@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ontario's Best Wedding Venues</title>
+
+    <!-- The following two lines are from the Map CDN that installs the Mapbox GL JS library -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- The following two lines are Mapbox plugins for geocoding -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+        type="text/css">    
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <!-- This links the html file to the CSS file -->
+    <link rel="stylesheet" href="lab3-style.css">
+</head>
+<body>
+    
+    <div>
+        <br>
+        <h1 class="title">Ontario's Best Wedding Venues</h1> <!-- This title will be styled according to the .title class in CSS -->
+
+        <img class="introimg" src="https://thumbs.dreamstime.com/b/large-pink-cream-cake-three-tiers-ornate-decorated-wedding-cake-isolated-white-background-logo-icon-large-pink-208237759.jpg">
+
+        <div class="intro"> <!-- This section will be styled according to the .intro class in CSS -->
+            <h2>Looking for the perfect location to get married at?</h2>
+            <h3>
+                Here is a list of some of the best wedding venues in Ontario, 
+                according to <a target="_blank" href="https://www.bellamyloft.com/wedding-venues-in-toronto/">Bellamy Loft</a>!
+                <!-- Hyperlink that opens in a new tab -->
+            </h3>
+            <p>
+                The GeoJSON file of all the venues can be found <a target="_blank" href="wedding.geojson">here</a>.
+                <!-- Hyperlink that opens in a new tab -->
+            </p>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="main"> <!-- This is the map container, which will be styled according to the .main class in CSS -->
+        <div id='map' class='map'></div> <!-- The map specifically will be styled according to the .map class in CSS -->
+        
+        <!-- This will create a container with a search bar and return extent button -->
+        <div class="map-overlay-search">
+            <label style="font-weight: bold;">Search for the location</label>
+
+            <div id="geocoder" class="geocoder"></div>     <!-- Allows users to search for a location in the map --> 
+           
+            <button type="button" class="btn btn-primary btn-sm" id="extentbtn">Return to full extent</button>  <!-- When clicked on, the map will return to its initial extent -->
+
+            <label class="filter-heading">Filter map view</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="legendCheck">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Legend
+                </label>
+            </div>
+
+        </div>
+
+        <!-- This will create a legend for the colours of the icons in the map -->
+        <div id="legend" class="legend">
+            <h4>Venue Type</h4>
+        </div>
+
+        <div class="main-left"> <!-- This list of venues will be styled according to the .main-left class in CSS -->
+            <h2>List of Venues:</h2>
+            <ul> <!-- This is an unordered, bullet list of all the wedding weddings, which are also hyperlinks that open in a new tab -->
+                <li> <a href="https://agakhanmuseum.org/private-events/weddings.html">Aga Khan Museum</a> </li>
+                <li> <a target="_blank" href="https://www.aubergedupommier.com/private-dining/">Auberge du Pommier</a> </li>
+                <li> <a target="_blank" href="https://www.canoerestaurant.com/weddings/">Canoe Restaurant & Bar</a> </li>
+                <li> <a target="_blank" href="https://casaloma.ca/weddings-socialevents/">Casa Loma</a> </li>
+                <li> <a target="_blank" href="https://www.eventsdeercreek.com/">Deer Creek Golf Club</a> </li>
+                <li> <a target="_blank" href="https://www.fairmont.com/weddings/">Fairmont Royal York</a> </li>
+                <li> <a target="_blank" href="https://www.graydonhall.com/events/weddings/">Graydon Hall Manor</a> </li>
+                <li> <a target="_blank" href="https://www.junctioncraft.com/events">Junction Craft Brewery</a> </li>
+                <li> <a target="_blank" href="https://knox.utoronto.ca/facility-rental/#section-weddings-&-photography">Knox College</a> </li>
+                <li> <a target="_blank" href="https://kortright.bypeterandpauls.com/">Kortright Centre for Conservation</a> </li>
+                <li> <a target="_blank" href="https://liunastation.com/liuna-station/weddings/">Liuna Gardens</a> </li>
+                <li> <a target="_blank" href="https://madisongreenhouse.ca/function/wedding/">Madison Greenhouse</a> </li>
+                <li> <a target="_blank" href="https://paradisebanquethalls.com/">Paradise Banquet Hall</a> </li>
+                <li> <a target="_blank" href="https://royalashburngolfclub.com/weddings/">Royal Ashburn Golf Club</a> </li>
+                <li> <a target="_blank" href="https://www.toronto.ca/services-payments/venues-facilities-bookings/booking-city-facilities/rentals-parties/">Spadina Museum</a> </li>
+                <li> <a target="_blank" href="https://thearlingtonestate.com/services/weddings/">The Arlington Estate</a> </li>
+                <li> <a target="_blank" href="https://www.distilleryevents.com/the-fermenting-cellar">The Fermenting Cellar</a> </li>
+                <li> <a target="_blank" href="https://www.omnihotels.com/hotels/toronto-king-edward/weddings">The Omni King Edward Hotel</a> </li>
+            </ul>
+        </div>
+    </div>
+        
+    <script src="lab3-script.js"></script> <!-- This links the html file to the Javascript file-->
+
+    </div>
+</body>
+</html>
