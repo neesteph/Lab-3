@@ -4,7 +4,6 @@ INITIALIZE MAP
 
 // This token connects my map to my Mapbox account and gives access to the Mapbox API
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3RlcGhuZWUiLCJhIjoiY2xkdnp0dmExMDJreDNwcXd6ajY1cHp1cSJ9.JkrzcmpJLmS8dzQwqlCcRg';
-// 'pk.eyJ1Ijoic3RlcGhuZWUiLCJhIjoiY2xkdnp0dmExMDJreDNwcXd6ajY1cHp1cSJ9.JkrzcmpJLmS8dzQwqlCcRg';
 
 /* 
     Creates new constant variable called map, which is connected to the map container in the html file
@@ -14,7 +13,6 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic3RlcGhuZWUiLCJhIjoiY2xkdnp0dmExMDJreDNwcXd6a
 const map = new mapboxgl.Map({
     container:'map',
     style: 'mapbox://styles/stephnee/clexnrafr000a01lgiv945csc',
-    // 'mapbox://styles/stephnee/cldw19hpq000001qdec8pey8a',
     center: [-79.34702, 43.65107],    // Long, lat
     zoom: 8,
     maxBounds: [
@@ -46,11 +44,10 @@ map.on('load',() => {
     
     map.resize();   // This allowed me to change the size of the map
     
-    // This adds the GeoJSON file as a source called mymappeddata
+    // This adds the GeoJSON file
     map.addSource('wedding',{
         type:'geojson',
         data: 'https://neesteph.github.io/Lab1/wedding.geojson'
-        // 'https://neesteph.github.io/Lab1/mymappeddata.geojson'
     });
 
     // This adds the "Name" layer from the GeoJSON file so that each point feature is labelled by the venue name
